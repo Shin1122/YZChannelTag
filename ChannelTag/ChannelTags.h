@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChannelCell.h"
 
 @interface ChannelTags : UIViewController
+
+@property (nonatomic, strong) UICollectionView *mainView ;
+
+@property (nonatomic, strong) NSMutableArray *myChannels ;
+
+@property (nonatomic, strong) NSMutableArray *recommandChannels ;
+
 
 @end

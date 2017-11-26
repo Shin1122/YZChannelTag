@@ -7,16 +7,37 @@
 //
 
 #import "ViewController.h"
+#import "ChannelTags.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *tagLabel;
 
 @end
 
 @implementation ViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (IBAction)chooseBtn:(id)sender {
+    //秀出来选择框
+    ChannelTags *controller = [[ChannelTags alloc]init];
+    [self presentViewController:controller animated:YES completion:^{
+        
+    }];
+    
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 

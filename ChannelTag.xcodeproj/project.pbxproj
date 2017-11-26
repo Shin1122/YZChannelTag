@@ -15,6 +15,9 @@
 		54F134CB1FCAFD200054E52C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F134CA1FCAFD200054E52C /* main.m */; };
 		54F134D51FCAFD200054E52C /* ChannelTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F134D41FCAFD200054E52C /* ChannelTagTests.m */; };
 		54F134E01FCAFD200054E52C /* ChannelTagUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F134DF1FCAFD200054E52C /* ChannelTagUITests.m */; };
+		54F134EF1FCAFFC40054E52C /* ChannelTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F134EE1FCAFFC40054E52C /* ChannelTags.m */; };
+		54F134F31FCB00710054E52C /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F134F21FCB00710054E52C /* ChannelCell.m */; };
+		54F134F61FCB06D40054E52C /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F134F51FCB06D40054E52C /* Channel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		54F134DB1FCAFD200054E52C /* ChannelTagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChannelTagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F134DF1FCAFD200054E52C /* ChannelTagUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelTagUITests.m; sourceTree = "<group>"; };
 		54F134E11FCAFD200054E52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54F134ED1FCAFFC40054E52C /* ChannelTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelTags.h; sourceTree = "<group>"; };
+		54F134EE1FCAFFC40054E52C /* ChannelTags.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelTags.m; sourceTree = "<group>"; };
+		54F134F11FCB00710054E52C /* ChannelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
+		54F134F21FCB00710054E52C /* ChannelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
+		54F134F41FCB06D40054E52C /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		54F134F51FCB06D40054E52C /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +110,12 @@
 		54F134BA1FCAFD200054E52C /* ChannelTag */ = {
 			isa = PBXGroup;
 			children = (
+				54F134F41FCB06D40054E52C /* Channel.h */,
+				54F134F51FCB06D40054E52C /* Channel.m */,
+				54F134F11FCB00710054E52C /* ChannelCell.h */,
+				54F134F21FCB00710054E52C /* ChannelCell.m */,
+				54F134ED1FCAFFC40054E52C /* ChannelTags.h */,
+				54F134EE1FCAFFC40054E52C /* ChannelTags.m */,
 				54F134BB1FCAFD200054E52C /* AppDelegate.h */,
 				54F134BC1FCAFD200054E52C /* AppDelegate.m */,
 				54F134BE1FCAFD200054E52C /* ViewController.h */,
@@ -265,9 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F134EF1FCAFFC40054E52C /* ChannelTags.m in Sources */,
+				54F134F61FCB06D40054E52C /* Channel.m in Sources */,
 				54F134C01FCAFD200054E52C /* ViewController.m in Sources */,
 				54F134CB1FCAFD200054E52C /* main.m in Sources */,
 				54F134BD1FCAFD200054E52C /* AppDelegate.m in Sources */,
+				54F134F31FCB00710054E52C /* ChannelCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DVPT5R6X2;
 				INFOPLIST_FILE = ChannelTag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Shin.ChannelTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,6 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DVPT5R6X2;
 				INFOPLIST_FILE = ChannelTag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Shin.ChannelTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
