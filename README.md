@@ -12,6 +12,7 @@ item可以移动的collectionview实际应用
 ```
 ChannelTags *controller = 
       [[ChannelTags alloc]initWithMyTags:_myTags andRecommandTags:_recommandTags];
+      
 [self presentViewController:controller animated:YES completion:^{}];
 ```
 可以直接加载出来该Controller,可自定义修改模态。
@@ -36,23 +37,30 @@ ChannelTags *controller =
 //添加长按的手势
 UILongPressGestureRecognizer *longPress = 
         [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
+        
 [_mainView addGestureRecognizer:longPress];
 ```
 * 手势状态的变化和操作
 ```
 - (void)longPress:(UIGestureRecognizer *)longPress {
+
   //获取点击在collectionView的坐标
   CGPoint point=[longPress locationInView:_mainView];
+  
   //从长按开始
   NSIndexPath *indexPath=[_mainView indexPathForItemAtPoint:point];
+  
   if (longPress.state == UIGestureRecognizerStateBegan) {
     [_mainView beginInteractiveMovementForItemAtIndexPath:indexPath];
+    
   //长按手势状态改变
   } else if(longPress.state==UIGestureRecognizerStateChanged) {
     [_mainView updateInteractiveMovementTargetPosition:point];
+    
   //长按手势结束
   } else if (longPress.state==UIGestureRecognizerStateEnded) {
     [_mainView endInteractiveMovement];
+    
   //其他情况
   } else {
     [_mainView cancelInteractiveMovement];
@@ -62,6 +70,7 @@ UILongPressGestureRecognizer *longPress =
 * 实现回调方法
 ```
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath;
+
 -(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
 ```
 
