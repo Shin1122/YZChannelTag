@@ -2,9 +2,10 @@
 ## 仿写《今日头条》的tag选择页面
 
 ####item可以移动的collectionview应用
-<img src="/Users/yzshin/Desktop/taggif.gif" width = "414" height = "736" alt="图片名称" align=center />
+<img src="https://github.com/Shin1122/YZChannelTag/blob/master/taggif.gif" width = "414" height = "736" alt="图片名称" align=center />
 
 在《今日头条》中，该页面是用来选择自己感兴趣的频道标签从而改变segment的。标签功能应用的需求现在也比较多，主要使用collectionview中item可以移动的方法和思路来写这样的页面。
+
 ###用法
 
 ```
