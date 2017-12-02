@@ -61,11 +61,14 @@
         }else{
             _delBtn.hidden = NO;
         }
-        if (model.resident) {
-            _delBtn.hidden = YES;
+        
+        //选择出来的tag高亮显示
+        if (model.selected) {
+            _title.textColor = [UIColor colorWithRed:0.5 green:0.26 blue:0.27 alpha:1.0];
         }else{
-            _delBtn.hidden = NO;
+            _title.textColor = [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:1.0];
         }
+        
     }else if (model.tagType == RecommandChannel){
         if (![model.title containsString:@"＋"]) {
             model.title = [@"＋" stringByAppendingString:model.title];
@@ -82,6 +85,7 @@
         _delBtn.hidden = YES;
     }
     _title.text = model.title;
+    
 }
 
 

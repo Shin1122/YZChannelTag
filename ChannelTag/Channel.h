@@ -26,6 +26,8 @@ typedef NS_ENUM(NSUInteger, ChannelType) {
 
 @property (nonatomic, strong) NSString *title ;
 
+@property (nonatomic, assign) BOOL selected ;
+
 @property (nonatomic, assign) ChannelType tagType ;
 
 @end
