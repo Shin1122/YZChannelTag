@@ -1,5 +1,5 @@
 # YZChannelTag
-### 傻瓜级代码 仿写《今日头条》的tag选择页面
+### 仿写《今日头条》的tag选择页面
 
 item可以移动的collectionview实际应用
 
