@@ -15,7 +15,10 @@
     NSMutableArray *_myTags;
     NSMutableArray *_recommandTags;
     
-    BOOL _onEdit;
+    UIButton *_editBtn;//编辑按钮
+    
+    BOOL _onEdit;//tag处在编辑状态
+    BOOL _tagDeletable;//在长按tag的时候是否可以删除该tag
 }
 
 @end
@@ -104,12 +107,18 @@
     NSIndexPath *indexPath=[_mainView indexPathForItemAtPoint:point];
     if (longPress.state == UIGestureRecognizerStateBegan) {
         [_mainView beginInteractiveMovementForItemAtIndexPath:indexPath];
+        if (_onEdit) {
+        }else{
+            [self editTags:_editBtn];
+        }
+        _tagDeletable = NO;
         //长按手势状态改变
     } else if(longPress.state==UIGestureRecognizerStateChanged) {
         [_mainView updateInteractiveMovementTargetPosition:point];
         //长按手势结束
     } else if (longPress.state==UIGestureRecognizerStateEnded) {
         [_mainView endInteractiveMovement];
+        _tagDeletable = YES;
         //其他情况
     } else {
         [_mainView cancelInteractiveMovement];
@@ -202,17 +211,17 @@
             lab2.frame = CGRectMake(100, 2, 200, 60);
             lab2.textColor = [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:1.00];
             
-            UIButton *editBtn = [[UIButton alloc]init];
-            editBtn.frame = CGRectMake(collectionView.frame.size.width-60, 13, 44, 28);
-            [header addSubview:editBtn];
-            [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
-            editBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-            [editBtn setTitleColor:[UIColor colorWithRed:0.5 green:0.26 blue:0.27 alpha:1.0] forState:UIControlStateNormal];
-            editBtn.layer.borderColor = [UIColor colorWithRed:0.5 green:0.26 blue:0.27 alpha:1.0].CGColor;
-            editBtn.layer.masksToBounds = YES;
-            editBtn.layer.cornerRadius = 14;
-            editBtn.layer.borderWidth = 0.8;
-            [editBtn addTarget:self action:@selector(editTags:) forControlEvents:UIControlEventTouchUpInside];
+            _editBtn = [[UIButton alloc]init];
+            _editBtn.frame = CGRectMake(collectionView.frame.size.width-60, 13, 44, 28);
+            [header addSubview:_editBtn];
+            [_editBtn setTitle:@"编辑" forState:UIControlStateNormal];
+            _editBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+            [_editBtn setTitleColor:[UIColor colorWithRed:0.5 green:0.26 blue:0.27 alpha:1.0] forState:UIControlStateNormal];
+            _editBtn.layer.borderColor = [UIColor colorWithRed:0.5 green:0.26 blue:0.27 alpha:1.0].CGColor;
+            _editBtn.layer.masksToBounds = YES;
+            _editBtn.layer.cornerRadius = 14;
+            _editBtn.layer.borderWidth = 0.8;
+            [_editBtn addTarget:self action:@selector(editTags:) forControlEvents:UIControlEventTouchUpInside];
         }
     }else if (indexPath.section == 1){
         if (kind == UICollectionElementKindSectionHeader){
@@ -235,6 +244,7 @@
     return header;
 }
 
+/** 进入编辑状态 */
 - (void)editTags:(UIButton *)sender{
     
     if (!_onEdit) {
