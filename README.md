@@ -9,7 +9,7 @@ item可以移动的collectionview实际应用
 
 #### Version & issues
 
-###### 1.2 增加长按进入编辑状态 
+###### 1.2 增加长按进入编辑状态 [issue 1](https://github.com/Shin1122/YZChannelTag/issues/1)
 
 ###### 1.0 仿写今日头条当前版本功能
 
